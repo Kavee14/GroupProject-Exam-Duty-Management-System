@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from "./pages/Login.jsx";
+import Login from "./pages/Login/Login.jsx";
 //import Dashboard from "./Pages/Dashboard.jsx";
 
 

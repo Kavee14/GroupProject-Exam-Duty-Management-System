@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import Footer from '../components/main components/Footer';
-import NavBar1 from "../components/main components/NavBar1";
-import logo from "../assets/logo.png"
+import Footer from '../../components/main components/Footer';
+import NavBar1 from "../../components/main components/NavBar1";
+import logo from "../../assets/logo.png"
 import './Login.css';
 
 const LoginPage = () => {
@@ -114,7 +114,7 @@ const LoginPage = () => {
                                     </Col>
                                     <Col md={2}></Col>
                                     <Col md={4} className="text-right">
-                                        <a href="/" className="clear-link">Do you want to clear?</a>
+                                        <a href="/frontend/public" className="clear-link">Do you want to clear?</a>
                                     </Col>
                                 </Row>
                                     <br/></div>
@@ -130,7 +130,7 @@ const LoginPage = () => {
                             <div className="login-footer mt-3 text-center">
                                 <p className="mt-2" color="#545454">
                                     New member here? {' '}
-                                    <a href="/" className="register-link">
+                                    <a href="/frontend/public" className="register-link">
                                         Register Now
                                     </a>
                                 </p>
