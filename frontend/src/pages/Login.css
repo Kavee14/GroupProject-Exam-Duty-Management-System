@@ -1,0 +1,57 @@
+.login-page {
+    font-family: 'Poppins', sans-serif;
+}
+
+.login-container {
+    border: 0px solid #ccc;
+    padding: 20px;
+    margin:50px 100px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login-box{
+    padding: 20px;
+}
+
+.logo-img {
+    width: 110px;
+    height: 32px;
+}
+
+.login-title1{
+    font-size: 25px;
+}
+
+.login-title {
+    color: #00568D;
+    font-size: 30px;
+    font-weight: 600;
+
+
+}
+
+.login-subtitle {
+    font-size: 16px;
+    color: #545454;
+}
+
+.checkbox{
+    padding-top: 25px;
+}
+
+.login-btn {
+    background-color: #00568D;
+}
+
+.clear-link, .register-link {
+    color: #45A9EA;
+}
+
+.register-link{
+    font-weight: bold;
+}
+
+.clear-link:hover, .register-link:hover {
+    text-decoration: underline;
+}

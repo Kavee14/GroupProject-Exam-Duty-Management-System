@@ -1,0 +1,12 @@
+.customloginbtn {
+    width: 178px;
+    height: 32px;
+    background-color: #00568D !important;
+    color: white;
+    font-family: Poppins, sans-serif;
+    border-radius: 8px;
+    opacity: 1;
+    align-self: center;
+}
+
+
