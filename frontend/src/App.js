@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Login from "./pages/Login/Login.jsx";
-//import Dashboard from "./Pages/Dashboard.jsx";
+import Login from "./pages/Login/Login";
+import Duties from "./pages/Duties/DutiesPage";
 
 
 
@@ -10,6 +10,7 @@ function App() {
 
     <Routes>
       <Route path="/" element={<Login />} />
+      <Route path="/duties" element={<Duties />} />
     </Routes>
 
   </Router>;
