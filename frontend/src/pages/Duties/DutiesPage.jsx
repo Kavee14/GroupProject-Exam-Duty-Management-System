@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import { Container, Row, Col, Card, Button, Form, InputGroup, Image } from 'react-bootstrap';
 import { FaChevronDown, FaSearch, FaTimes } from 'react-icons/fa';
-import Sidebar from "../../components/Main components/Sidebar";
-import Header from "../../components/Main components/Header";
-import Footer from "../../components/Main components/Footer.jsx";
+import Sidebar from "../../components/main components/Sidebar";
+import Header from "../../components/main components/Header";
+import Footer from "../../components/main components/Footer";
 import pdf from '../../assets/pdf.png'
 import './DutiesPage.css';
 
