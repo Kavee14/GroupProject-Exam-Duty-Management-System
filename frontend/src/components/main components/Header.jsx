@@ -1,12 +1,17 @@
 import React from 'react';
 import { Navbar, Button, Col } from 'react-bootstrap';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './Header.css';
 import profile from '../../assets/profile.png';
 
 function Header({ toggleSidebar, isSidebarOpen, activePage }) {
-
-    //const navigate = useNavigate();
+    let user=JSON.parse(localStorage.getItem('user-info'))
+    const navigate=useNavigate()
+    function logOut()
+    {
+        localStorage.clear();
+        navigate(`/`)
+    }
 
     return (
         <div className={isSidebarOpen ? "shifted" : ""}>
@@ -16,13 +21,13 @@ function Header({ toggleSidebar, isSidebarOpen, activePage }) {
                 </Button>
                 <Navbar.Collapse className="justify-content-end">
                     <Col md={2}>
-                        <Navbar.Text className="login-name">A.B.C.D.Samarasinghe</Navbar.Text>
+                        <Navbar.Text className="login-name">{user && user.name}</Navbar.Text>
                     </Col>
                     <img
                         src={profile}
                         alt="Profile"
                         className="profile-pic"
-                        //onClick={handleLogout} // Trigger logout on click
+                        onClick={logOut}
                     />
                 </Navbar.Collapse>
             </Navbar>

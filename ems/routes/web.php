@@ -20,3 +20,13 @@ Route::get('/duties/{id}', [DutyController::class, 'show'])->name('duties.show')
     });
     return 'Test email sent!';
 });*/
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});
