@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Container, Row } from 'react-bootstrap';
-import Sidebar from "../../components/Main components/Sidebar";
-import Header from "../../components/Main components/Header";
-import UpcomingDuties from '../../components/Dashboard components/UpcomingDuties';
-import Updates from '../../components/Dashboard components/Updates';
-import Calendar from '../../components/Dashboard components/Calendar';
-import RequestButton from '../../components/Dashboard components/RequestButton';
-import Footer from '../../components/Main components/Footer';
+import Sidebar from "../../components/main components/Sidebar";
+import Header from "../../components/main components/Header";
+import UpcomingDuties from '../../components/dashboard components/UpcomingDuties';
+import Updates from '../../components/dashboard components/Updates';
+import Calendar from '../../components/dashboard components/Calendar';
+import RequestButton from '../../components/dashboard components/RequestButton';
+import Footer from '../../components/main components/Footer';
 import './Dashboard.css';
 
 
