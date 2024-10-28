@@ -16,7 +16,7 @@
 .main-content {
   flex: 1;
   display: flex;
-  flex-direction: column; /* Align Header and other content vertically */
+  flex-direction: column; /* Align AdminHeader and other content vertically */
   width: 100%;
   overflow: hidden; /* Prevent overflow from pushing the layout */
   padding: 10px;
