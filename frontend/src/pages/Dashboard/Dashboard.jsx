@@ -17,8 +17,8 @@ const Dashboard = () => {
   const activePage = "Dashboard";
     return (
         <Container fluid className="main-container">
-          <Row>
             <Sidebar isOpen={isSidebarOpen} />
+            <Row>
             <div className={`main-content ${isSidebarOpen ? 'shifted' : ''}`}>
               <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} activePage={activePage}/>
 

@@ -135,7 +135,7 @@ function LoginPage() {
                                     </Col>
                                 </Row>
                                 <div className="d-grid gap-2">
-                                    <Button variant="primary" type="submit" className="login-btn">
+                                    <Button variant="primary" type="submit" className="login-btn w-100">
                                         Log In
                                     </Button>
                                 </div>
@@ -143,9 +143,9 @@ function LoginPage() {
                             </Form>
                             <div className="login-footer mt-3 text-center">
                                 <p className="mt-2">
-                                    New member here?{' '}
-                                    <a href="/" className="register-link">
-                                        Register Now
+                                    New member?{' '}
+                                    <a href="/" className="register-link" >
+                                        Contact DCS
                                     </a>
                                 </p>
                             </div>
