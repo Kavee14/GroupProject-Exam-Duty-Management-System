@@ -41,7 +41,7 @@ export const Footer = () => {
                     </Row>
                 </Container>
             <div className={styles.footerBottom}>
-                Department of Computer Science
+                <p>© {new Date().getFullYear()} Department of Computer Science</p>
             </div>
         </footer>
     )
