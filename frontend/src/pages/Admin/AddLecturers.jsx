@@ -33,7 +33,7 @@ function AddLecturers() {
                                 <div className="pl-3">
                                     <img src={logo} alt="EMS Logo" className="logo"/>
                                 </div>
-                                <h2 className="text-title pb-3 mt-3" style={{fontWeight: 'bold', textAlign:'center'}}>Lecturer Details</h2>
+                                <h3 className="text-title pb-3 mt-3" style={{fontWeight: 'bold', textAlign:'center'}}>Lecturer Details</h3>
                                 <br/>
                                 <Form onSubmit={handleSubmit}>
                                     {/* Name */}
