@@ -28,12 +28,12 @@ function AddLecturers() {
                     <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} activePage={activePage} />
 
                     <Container fluid className="content-container">
-                        <Card className="lecturer-details mb-4">
+                        <Card className="lecturer-details mb-4 px-5">
                             <Card.Body>
                                 <div className="pl-3">
-                                    <img src={logo} alt="EMS Logo" className="logo" />
+                                    <img src={logo} alt="EMS Logo" className="logo"/>
                                 </div>
-                                <h3 className="section-title">Lecturer Details</h3>
+                                <h2 className="text-title pb-3 mt-3" style={{fontWeight: 'bold', textAlign:'center'}}>Lecturer Details</h2>
                                 <br/>
                                 <Form onSubmit={handleSubmit}>
                                     {/* Name */}
@@ -43,7 +43,7 @@ function AddLecturers() {
                                             <span className="colon">:</span>
                                         </Form.Label>
                                         <Col sm={9}>
-                                            <Form.Control type="name" placeholder="Enter Full Name" />
+                                            <Form.Control type="name" placeholder="Enter Full Name"/>
                                         </Col>
                                     </Form.Group>
 
@@ -54,7 +54,7 @@ function AddLecturers() {
                                             <span className="colon">:</span>
                                         </Form.Label>
                                         <Col sm={9}>
-                                            <Form.Control type="email" placeholder="Enter Email" />
+                                            <Form.Control type="email" placeholder="Enter Email"/>
                                         </Col>
                                     </Form.Group>
 
@@ -65,7 +65,7 @@ function AddLecturers() {
                                             <span className="colon">:</span>
                                         </Form.Label>
                                         <Col sm={9}>
-                                            <Form.Control type="text" placeholder="Enter Phone Number" />
+                                            <Form.Control type="text" placeholder="Enter Phone Number"/>
                                         </Col>
                                     </Form.Group>
 
@@ -76,7 +76,7 @@ function AddLecturers() {
                                             <span className="colon">:</span>
                                         </Form.Label>
                                         <Col sm={9}>
-                                            <Form.Control type="text" placeholder="Enter Address" />
+                                            <Form.Control type="text" placeholder="Enter Address"/>
                                         </Col>
                                     </Form.Group>
 
@@ -110,7 +110,7 @@ function AddLecturers() {
                                         </Col>
                                     </Form.Group>
 
-                                    <Button variant="primary" type="submit" className="mt-3">
+                                    <Button variant="primary" type="submit" className="btn-sm mt-5">
                                         Submit
                                     </Button>
                                 </Form>

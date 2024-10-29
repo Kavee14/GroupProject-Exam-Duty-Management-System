@@ -1,25 +1,19 @@
 .header {
+    position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 50px;
-    background-color: #FFFFFF;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    padding-top:35px;
-    padding-bottom:35px;
-    position: absolute;
     z-index: 1000;
-    width: 100%;
     transition: margin-left 0.3s ease, width 0.3s ease;
+    position: fixed;
 }
 
 /* Adjust the button's style */
 .custom-button {
     background-color: #00568D;
+    color: white;
     border: none;
-    padding: 5px 10px;
+    padding: 2px 10px;
     font-size: 14px;
     border-radius: 4px;
 }
@@ -28,18 +22,18 @@
     background-color: #0056b3;
 }
 
-.profile-vector {
-    width: 5px;
-    height: 10px;
-    background: #00568D;
-    border-radius: 50%;
-    margin-right: 10px;
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    margin-right: 20px;
+    cursor:pointer;
 }
 
 .login-name{
     color: #00568D;
     font-weight: 500;
-    padding-left: 50px;
+    padding-left: 20px;
+
 
 }
 
@@ -50,7 +44,6 @@
     right: 0;
     text-align: left;
     background-color: #ffffff;
-    z-index: 999;
     padding-left: 30px;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -71,3 +64,4 @@
     margin-left: 250px;
     width: calc(100% - 250px);
 }
+

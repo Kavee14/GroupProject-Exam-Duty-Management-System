@@ -11,15 +11,6 @@
     width: 100%;
   }
 
-  .section-title {
-    padding-top: 10px;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 43px;
-    text-align: center;
-    color: #00568D;
-    margin-bottom: 10px;
-  }
   .card {
     padding: 20px 50px;
     border: none;

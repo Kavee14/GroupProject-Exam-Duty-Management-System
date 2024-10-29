@@ -18,6 +18,7 @@ function DutiesPage() {
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
   const activePage = "Duties";
   const handleDownloadSchedule = () => alert('Downloading schedule...');
+  const handleViewSchedule = () => alert('Viewing schedule...');
   const handleAccept = (id) => alert(`Accepted request from ID ${id}`);
 
   return (
@@ -43,18 +44,18 @@ function DutiesPage() {
                         <Col md={6}>
                           <p style={{ display: 'inline' }}>Do you want to see the schedule?</p>
                         </Col>
-                        <Col md={4}>
-                          <Button variant="primary" className="ViewButton" onClick={handleDownloadSchedule} style={{ marginLeft: '10px' }}>
-                            View
-                          </Button>
-                        </Col>
+                          <Col className="d-flex align-items-center">
+                            <Button variant="primary btn-sm" onClick={handleViewSchedule} style={{ marginLeft: '10px' }}>
+                              View
+                            </Button>
+                          </Col>
                       </Row>
                       <Row className="align-items-center">
                         <Col>
                           <p style={{ display: 'inline' }}>Do you want to download the schedule?</p>
                         </Col>
                         <Col className="d-flex align-items-center">
-                          <Button variant="primary" onClick={handleDownloadSchedule} style={{ marginLeft: '10px' }}>
+                          <Button variant="primary btn-sm" onClick={handleDownloadSchedule} style={{ marginLeft: '10px' }}>
                             Download
                           </Button>
                         </Col>
@@ -93,8 +94,8 @@ function DutiesPage() {
               <Card className="pending-requests mb-4">
                 <Card.Body>
                   <h2 className="section-title">Pending Requests</h2>
-                  <Card className="requests mt-3">
-                    <Card.Body>
+                  <Card className="requests mt-3"  style={{height:'auto'}}>
+                    <Card.Body  style={{height:'auto'}}>
                       {requests.map(request => (
                           <Row key={request.id} className="align-items-center">
                             <Col md={8}>
@@ -102,7 +103,7 @@ function DutiesPage() {
                             </Col>
                             <Col className="d-flex justify-content-end">
                               <Button
-                                  variant="success"
+                                  variant="success btn-sm"
                                   onClick={() => handleAccept(request.id)}
                                   style={{ marginLeft: '10px' }}
                               >
