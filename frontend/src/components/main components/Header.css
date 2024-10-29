@@ -1,5 +1,4 @@
 .header {
-    position: absolute;
     top: 0;
     left: 0;
     right: 0;
@@ -8,7 +7,6 @@
     position: fixed;
 }
 
-/* Adjust the button's style */
 .custom-button {
     background-color: #00568D;
     color: white;
@@ -23,8 +21,8 @@
 }
 
 .profile-pic {
-    width: 40px;
-    height: 40px;
+    width: 40px !important;
+    height: 40px !important;
     margin-right: 20px;
     cursor:pointer;
 }

@@ -9,7 +9,7 @@ import './AdminDashboard.css';
 function AdminDashboard() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
-    const activePage = "AssignDuties";
+    const activePage = "Assign Duties";
 
     const names = ["W.A.B.C.D.Ranasinghe", "D.M.K.N.Dissanayake", "A.N.B.C.Senanayake"];
     const courseNames = ["Computer Science", "Mathematics", "Chemistry","Physics","Zoology","Botany"];
@@ -32,7 +32,7 @@ function AdminDashboard() {
                                 <div className="pl-3">
                                     <img src={logo} alt="EMS Logo" className="logo" />
                                 </div>
-                                <h1 className="section-title">Exam Duty Assign</h1>
+                                <h1 className="section-title pb-4">Exam Duty Assign</h1>
                                 <Form onSubmit={handleSubmit}>
                                     {/* Name */}
                                     <Form.Group as={Row} controlId="formName" className="mb-3">

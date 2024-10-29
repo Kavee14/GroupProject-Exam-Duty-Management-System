@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaUserEdit } from "react-icons/fa";
-import {Container, Row} from "react-bootstrap";
+import {Container,Row} from "react-bootstrap";
 import Sidebar from "../../components/main components/Sidebar";
 import Header from "../../components/main components/Header";
 import Footer from "../../components/main components/Footer";
@@ -51,17 +51,18 @@ function ProfileSection({ name, setName, email, setEmail, phone, setPhone, addre
                             <p className="designation">{position}</p>
                          </div>
 
-                    <div className="details">
+                    <div className="details ps-5 pe-3">
                         <div className="info-block">
-                            <div className="info-content">
+                            <p className="text-title" style={{fontWeight:"bold" , fontSize:"20px"}}>Personal Information</p>
+                            <div className="info-content px-3">
                                 {isEditingPersonalInfo ? (
                                     <>
-                                        <p><strong>Name:</strong>
-                                            <input
+                                    <p><strong>Name:</strong></p>
+                                        <input
                                                 value={name}
                                                 onChange={(e) => setName(e.target.value)}
                                             />
-                                        </p>
+
                                         <p><strong>Email:</strong>
                                             <input
                                                 value={email}
@@ -96,7 +97,8 @@ function ProfileSection({ name, setName, email, setEmail, phone, setPhone, addre
 
                     <div className="info-block">
                         <div className="info-content">
-                            {isEditingAcademicInfo ? (
+                            <p className="text-title" style={{fontWeight: "bold", fontSize: "20px"}}>Academic Information</p>
+                            <div className="info-content px-3">                            {isEditingAcademicInfo ? (
                                 <>
                                     <p><strong>Position:</strong>
                                         <input
@@ -110,23 +112,29 @@ function ProfileSection({ name, setName, email, setEmail, phone, setPhone, addre
                                             onChange={(e) => setDepartment(e.target.value)}
                                         />
                                     </p>
-                                    <button className="edit-btn" onClick={() => handleSaveClick(setIsEditingAcademicInfo)}>Save</button>
+                                    <button className="edit-btn"
+                                            onClick={() => handleSaveClick(setIsEditingAcademicInfo)}>Save
+                                    </button>
                                 </>
                             ) : (
                                 <>
-                                    <p><strong>Position:</strong> <span onClick={() => handleEditClick(setIsEditingAcademicInfo)}>{position}</span></p>
+                                    <p><strong>Position:</strong> <span
+                                        onClick={() => handleEditClick(setIsEditingAcademicInfo)}>{position}</span></p>
                                     <p><strong>Department:</strong> <span>{department}</span></p>
-                                    <button className="edit-btn" onClick={() => handleEditClick(setIsEditingAcademicInfo)}>Edit</button>
+                                    <button className="edit-btn"
+                                            onClick={() => handleEditClick(setIsEditingAcademicInfo)}>Edit
+                                    </button>
                                 </>
                             )}
-                        </div>
-                         </div>
+</div>                  </div>
                     </div>
-                </section>
+                    </div>
+        </section>
     );
 }
+
 function Profile() {
-    const [name, setName] = useState("A.B.C.D. Samarasinghe");
+    const [name, setName] = useState("Ayesha Samarasinghe");
     const [email, setEmail] = useState("samarasinghe@gmail.com");
     const [phone, setPhone] = useState("0771345679");
     const [address, setAddress] = useState("Matara");
@@ -142,21 +150,23 @@ function Profile() {
             <Row>
                 <div className={`main-content ${isSidebarOpen ? 'shifted' : ''}`}>
                     <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} activePage={activePage}/>
-                    <h2 className="voucher-report-text">MY PROFILE</h2>
-                    <ProfileSection
-                        name={name}
-                        setName={setName}
-                        email={email}
-                        setEmail={setEmail}
-                        phone={phone}
-                        setPhone={setPhone}
-                        address={address}
-                        setAddress={setAddress}
-                    />
-                </div>
-                <Footer />
-            </Row>
-        </Container>
+
+                    <Container fluid className="content-container">
+                        <ProfileSection
+                            name={name}
+                            setName={setName}
+                            email={email}
+                            setEmail={setEmail}
+                            phone={phone}
+                            setPhone={setPhone}
+                            address={address}
+                            setAddress={setAddress}
+                        />
+                    </Container>
+                <Footer/>
+            </div>
+        </Row>
+</Container>
     );
 }
 
