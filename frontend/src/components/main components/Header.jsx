@@ -1,5 +1,5 @@
 import React from 'react';
-import { Navbar, Button, Col } from 'react-bootstrap';
+import { Navbar, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import './Header.css';
 import profile from '../../assets/profile.png';
@@ -15,18 +15,18 @@ function Header({ toggleSidebar, isSidebarOpen, activePage }) {
 
     return (
         <div className={isSidebarOpen ? "shifted" : ""}>
-            <Navbar className="header" expand="lg">
-                <Button className="custom-button" variant="primary" onClick={toggleSidebar}>
+            <Navbar bg="white" className="header shadow-sm px-3" expand="lg">
+                <button className="custom-button"  onClick={toggleSidebar}>
                     ☰
-                </Button>
+                </button>
                 <Navbar.Collapse className="justify-content-end">
-                    <Col md={2}>
+                    <Col md={2} className="d-flex align-items-center">
                         <Navbar.Text className="login-name">{user && user.name}</Navbar.Text>
                     </Col>
                     <img
                         src={profile}
                         alt="Profile"
-                        className="profile-pic"
+                        roundedCircle className="profile-pic ms-2"
                         onClick={logOut}
                     />
                 </Navbar.Collapse>

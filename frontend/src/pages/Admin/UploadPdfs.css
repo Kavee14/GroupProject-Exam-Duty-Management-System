@@ -1,20 +1,10 @@
 
 .page-container {
   font-family: Poppins, sans-serif;
-  height: 100vh;
-  width: 100%;
 }
 
 .text-title{
   color:#00568D;
-}
-
-.content-container {
-  padding-top: 50px;
-  padding-bottom: 80px;
-  background-color: #f8f8f9;
-  margin-top: 100px;
-  width: 100%;
 }
 
 .card {
@@ -30,28 +20,17 @@
   border-color: #00568D;
   color: white;
   border-radius: 8px;
-  width: 200px;
+  width: 155px;
   margin: 20px auto 0;
   display: block;
 }
 
-.btn:hover {
-  background-color: #00476b;
-  border-color: #00476b;
-}
-
-.btn:active, .btn:focus {
+.btn:hover,
+.btn:active,
+.btn:focus {
   background-color: #00476b;
   border-color: #00476b;
   box-shadow: none;
-}
-
-/* Logo styling */
-.logo {
-  width: 143px;
-  height: 50px;
-  margin: 0 auto;
-  display: block;
 }
 
 /* Responsive adjustments */
