@@ -8,10 +8,6 @@ import AddLecturers  from "./pages/Admin/AddLecturers";
 import UploadPdfs from "./pages/Admin/UploadPdfs";
 import Protected from "./Protected"
 
-
-function App() {
-  return <Router>
-
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/dashboard" element={<Protected Cmp={Dashboard} />} />
@@ -20,12 +16,6 @@ function App() {
       <Route path="/admin" element={<Protected Cmp={AdminDashboard} />} />
       <Route path="/add" element={<Protected Cmp={AddLecturers} />} />
       <Route path="/upload" element={<Protected Cmp={UploadPdfs} />} />
-    </Routes>
-
-  </Router>;
-}
-
-export default App;
 
 
-
+   export default App;
