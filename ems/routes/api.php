@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExamDutyController;
 use App\Http\Controllers\LecturerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -18,4 +19,10 @@ Route::prefix('v1')->group(function () {
     Route::put('lecturers/edit/{id}', [LecturerController::class, 'update']);
     Route::delete('lecturers/{id}', [LecturerController::class, 'destroy']);
     Route::get('lecturers/get/{id}', [LecturerController::class, 'show']);
+
+    Route::get('exam-duties/getAll', [ExamDutyController::class, 'index']);
+    Route::get('exam-duties/{id}', [ExamDutyController::class, 'show']);
+    Route::post('exam-duties/add', [ExamDutyController::class, 'store']);
+    Route::put('exam-duties/edit/{id}', [ExamDutyController::class, 'update']);
+    Route::delete('exam-duties/{id}', [ExamDutyController::class, 'destroy']);
 });
