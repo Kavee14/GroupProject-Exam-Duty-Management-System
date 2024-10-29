@@ -1,9 +1,14 @@
 .navbar-brand-logo {
-    width: 44px;
-    height: 60px;
+    max-height: 50px;
+}
+.navbar-text{
+    color:#00568D;
+
 }
 
-.me-3{
-    color: #00568D;
-    font-family: Poppins, sans-serif;
+
+.login-page {
+    font-family: 'Poppins', sans-serif;
+    padding-bottom: 50px;
 }
+

@@ -1,73 +1,76 @@
 import React, { useState } from 'react';
-import { Container, Row, Card, Button, Form } from 'react-bootstrap';
-import Sidebar from './Sidebar';
-import Header from './Header';
-import Footer from './Footer';  
+import { Container, Row, Col, Card, Button, Form} from 'react-bootstrap';
+import logo from '../../assets/logo.png';
+import Sidebar from '../../components/admin components/AdminSidebar';
+import Header from '../../components/main components/Header';
+import Footer from '../../components/main components/Footer';
 import './UploadPdfs.css';
-import logo from './images/image.png'; 
-
 function UploadPdfs() {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
-  const activePage = "ADMIN DASHBOARD";
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
+    const activePage = "ADMIN DASHBOARD";
+    const handleUpload = (label) => {
+            alert(`${label} uploaded!`);
+        };
+    const handleView =()=>{
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Form Submitted!');
-  };
+    };
 
-  return (
-    <Container fluid className="main-container">
-      <Row>
-        <Sidebar isOpen={isSidebarOpen} />
-        <div className={`main-content ${isSidebarOpen ? 'shifted' : ''}`}>
-          <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} activePage={activePage} />
-          <Container fluid className="content-container">
-            {/* Exam Duty Schedule Section */}
-            <Card className="exam-duty-pdfs mb-4">
-              <Card.Body>
-                <div className="pl-3">
-                  <img src={logo} alt="EMS Logo" className="logo" /> 
+
+
+        return (
+        <Container fluid className="main-container">
+            <Row>
+                <Sidebar isOpen={isSidebarOpen} />
+                <div className={`main-content ${isSidebarOpen ? 'shifted' : ''}`}>
+                    <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} activePage={activePage} />
+
+                    <Container fluid className="d-flex justify-content-center align-items-center min-vh-100 bg-light mt-md-5">
+                        <Card style={{ width: '728px', height: '573px' }} className="shadow">
+                            <Card.Body className="d-flex flex-column align-items-center">
+                                <img src={logo} alt="EMS Logo" className="mb-4" style={{ width: '100px' }} />
+                                <h2 className="text-title pb-5">Upload Exam Duty Pdfs</h2>
+
+                                <Form className="w-100 px-5">
+                                    {/* Exam Duty Schedule Upload */}
+                                    <Form.Group as={Row} className="mb-3">
+                                        <Form.Label column sm={5} className="text-start pe-3">
+                                            Exam Duty Schedule:
+                                        </Form.Label>
+                                        <Col sm={5} className="text-start">
+                                            <Button variant="primary btn-sm" onClick={() => handleUpload('Exam Duty Schedule')}>Upload</Button>
+                                        </Col>
+                                    </Form.Group>
+
+                                    {/* Voucher Upload */}
+                                    <Form.Group as={Row} className="mb-3">
+                                        <Form.Label column sm={4} className="text-start pe-3">
+                                            Voucher:
+                                        </Form.Label>
+                                        <Col sm={7} className="text-end">
+                                            <Button variant="primary btn-sm " onClick={() => handleUpload('Voucher')}>Upload</Button>
+                                        </Col>
+                                    </Form.Group>
+
+                                    {/* Report Upload */}
+                                    <Form.Group as={Row} className="mb-3">
+                                        <Form.Label column sm={4} className="text-start pe-3">
+                                            Report:
+                                        </Form.Label>
+                                        <Col sm={7} className="text-start">
+                                            <Button variant="primary btn-sm" onClick={() => handleUpload('Report')}>Upload</Button>
+                                            <Button variant="primary btn-sm" onClick={() => handleView('Report')}>View</Button>
+                                        </Col>
+                                    </Form.Group>
+                                </Form>
+                            </Card.Body>
+                        </Card>
+                    </Container>
+                    <Footer />
                 </div>
-                <h1 className="section-title">Upload Exam Duty Pdfs</h1>
-                <Form onSubmit={handleSubmit}>
-                  
-                  {/* Exam Duty Schedule Upload */}
-                  <Form.Group as={Row} controlId="formExamDutySchedule" className="upload-container">
-                   <Form.Label column sm={3} className="label-container">
-                     <div className="label-text">Exam Duty Schedule</div>
-                      <span className="colon">:</span>
-                   </Form.Label>
-                   <Button variant="primary" className="btn-upload">Upload</Button>
-                  </Form.Group>
-                  {/* Voucher Upload */}
-                  <Form.Group as={Row} controlId="formVoucherUpload" className="upload-container">
-                  <Form.Label column sm={3} className="label-container">
-                      <div className="label-text">Voucher</div>
-                      <span className="colon">:</span>
-                    </Form.Label>
-                    
-                    <Button variant="primary" className="btn-upload">Upload</Button>
-                  </Form.Group>
-
-                  {/* Report Upload */}
-                  <Form.Group as={Row} controlId="formReportUpload" className="upload-container">
-                  <Form.Label column sm={3} className="label-container">
-                      <div className="label-text">Report</div>
-                      <span className="colon">:</span>
-                    </Form.Label>
-                    <Button variant="primary" className="btn-upload">Upload</Button>
-                  </Form.Group>
-
-                </Form>
-              </Card.Body>
-            </Card>
-          </Container>
-          <Footer />
-        </div>
-      </Row>
-    </Container>
-  );
+            </Row>
+        </Container>
+    );
 }
 
 export default UploadPdfs;
