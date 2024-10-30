@@ -9,7 +9,7 @@ import './AdminDashboard.css';
 function AdminDashboard() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
-    const activePage = "Assign Duties";
+    const activePage = "Admin Dashboard";
 
     const names = ["W.A.B.C.D.Ranasinghe", "D.M.K.N.Dissanayake", "A.N.B.C.Senanayake"];
     const courseNames = ["Computer Science", "Mathematics", "Chemistry","Physics","Zoology","Botany"];

@@ -57,11 +57,12 @@ function ProfileSection({ name, setName, email, setEmail, phone, setPhone, addre
                             <div className="info-content px-3">
                                 {isEditingPersonalInfo ? (
                                     <>
-                                    <p><strong>Name:</strong></p>
+                                    <p><strong>Name:</strong>
                                         <input
                                                 value={name}
                                                 onChange={(e) => setName(e.target.value)}
                                             />
+                                    </p>
 
                                         <p><strong>Email:</strong>
                                             <input
