@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('department');
             $table->string('phone_number');
             $table->string('address');
             $table->string('position');
+            $table->string('department');
             $table->timestamps();
         });
     }
