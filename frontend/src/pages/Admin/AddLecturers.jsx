@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Form } from 'react-bootstrap';
+import api from '../../axiosConfig';
 import Sidebar from '../../components/admin components/AdminSidebar';
 import Header from '../../components/main components/Header';
 import Footer from '../../components/main components/Footer';
@@ -8,17 +9,47 @@ import logo from '../../assets/logo.png';
 
 function AddLecturers() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [lecturer, setLecturer] = useState({
+        name: '',
+        email: '',
+        phone_number: '',
+        address: '',
+        position: 'Professor',
+        department: 'Computer Science',
+    });
+
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
     const activePage = "ADMIN DASHBOARD";
 
-    // Sample data for dropdown lists
     const positions = ["Professor", "Associate Professor", "Lecturer", "Assistant Lecturer"];
     const departments = ["Computer Science", "Mathematics", "Physics", "Chemistry"];
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        alert('Form Submitted!');
+    // Update state on input change
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setLecturer({ ...lecturer, [name]: value });
     };
+
+    // Submit form
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        console.log('Lecturer data:', lecturer); // Check lecturer data before sending
+        try {
+            // No need to include the full URL, just the endpoint
+            const response = await api.post('/v1/lecturers/add', lecturer);
+            console.log('Lecturer added:', response.data);
+            alert('Lecturer added successfully!');
+        } catch (error) {
+            if (error.response) {
+                console.error('Error response:', error.response.data);
+                alert(`Failed to add lecturer: ${error.response.data.message || 'Unknown error'}`);
+            } else {
+                console.error('Error message:', error.message);
+                alert('Failed to add lecturer: ' + error.message);
+            }
+        }
+    };
+
 
     return (
         <Container fluid className="main-container">
@@ -36,58 +67,81 @@ function AddLecturers() {
                                 <h3 className="text-title pb-3 mt-3" style={{fontWeight: 'bold', textAlign:'center'}}>Lecturer Details</h3>
                                 <br/>
                                 <Form onSubmit={handleSubmit}>
-                                    {/* Name */}
                                     <Form.Group as={Row} controlId="formName" className="mb-3">
                                         <Form.Label column sm={3} className="label-container">
                                             <div className="label-text">Name</div>
                                             <span className="colon">:</span>
                                         </Form.Label>
                                         <Col sm={9}>
-                                            <Form.Control type="name" placeholder="Enter Full Name"/>
+                                            <Form.Control
+                                                type="text"
+                                                name="name"
+                                                placeholder="Enter Full Name"
+                                                value={lecturer.name}
+                                                onChange={handleInputChange}
+                                            />
                                         </Col>
                                     </Form.Group>
 
-                                    {/* Email */}
                                     <Form.Group as={Row} controlId="formEmail" className="mb-3">
                                         <Form.Label column sm={3} className="label-container">
                                             <div className="label-text">Email</div>
                                             <span className="colon">:</span>
                                         </Form.Label>
                                         <Col sm={9}>
-                                            <Form.Control type="email" placeholder="Enter Email"/>
+                                            <Form.Control
+                                                type="email"
+                                                name="email"
+                                                placeholder="Enter Email"
+                                                value={lecturer.email}
+                                                onChange={handleInputChange}
+                                            />
                                         </Col>
                                     </Form.Group>
 
-                                    {/* Phone Number */}
                                     <Form.Group as={Row} controlId="formPhone" className="mb-3">
                                         <Form.Label column sm={3} className="label-container">
                                             <div className="label-text">Phone Number</div>
                                             <span className="colon">:</span>
                                         </Form.Label>
                                         <Col sm={9}>
-                                            <Form.Control type="text" placeholder="Enter Phone Number"/>
+                                            <Form.Control
+                                                type="text"
+                                                name="phone_number"
+                                                placeholder="Enter Phone Number"
+                                                value={lecturer.phone_number}
+                                                onChange={handleInputChange}
+                                            />
                                         </Col>
                                     </Form.Group>
 
-                                    {/* Address */}
                                     <Form.Group as={Row} controlId="formAddress" className="mb-3">
                                         <Form.Label column sm={3} className="label-container">
                                             <div className="label-text">Address</div>
                                             <span className="colon">:</span>
                                         </Form.Label>
                                         <Col sm={9}>
-                                            <Form.Control type="text" placeholder="Enter Address"/>
+                                            <Form.Control
+                                                type="text"
+                                                name="address"
+                                                placeholder="Enter Address"
+                                                value={lecturer.address}
+                                                onChange={handleInputChange}
+                                            />
                                         </Col>
                                     </Form.Group>
 
-                                    {/* Position */}
                                     <Form.Group as={Row} controlId="formPosition" className="mb-3">
                                         <Form.Label column sm={3} className="label-container">
                                             <div className="label-text">Position</div>
                                             <span className="colon">:</span>
                                         </Form.Label>
                                         <Col sm={9}>
-                                            <Form.Select>
+                                            <Form.Select
+                                                name="position"
+                                                value={lecturer.position}
+                                                onChange={handleInputChange}
+                                            >
                                                 {positions.map((position, idx) => (
                                                     <option key={idx} value={position}>{position}</option>
                                                 ))}
@@ -95,14 +149,17 @@ function AddLecturers() {
                                         </Col>
                                     </Form.Group>
 
-                                    {/* Department */}
                                     <Form.Group as={Row} controlId="formDepartment" className="mb-3">
                                         <Form.Label column sm={3} className="label-container">
                                             <div className="label-text">Department</div>
                                             <span className="colon">:</span>
                                         </Form.Label>
                                         <Col sm={9}>
-                                            <Form.Select>
+                                            <Form.Select
+                                                name="department"
+                                                value={lecturer.department}
+                                                onChange={handleInputChange}
+                                            >
                                                 {departments.map((department, idx) => (
                                                     <option key={idx} value={department}>{department}</option>
                                                 ))}

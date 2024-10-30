@@ -17,9 +17,11 @@ class LecturerController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:lecturers',
-            'department' => 'required',
             'phone_number' => 'required',
+            'address' => 'required',
             'position' => 'required',
+            'department' => 'required',
+
         ]);
 
         Lecturer::create($request->all());
@@ -47,7 +49,7 @@ class LecturerController extends Controller
     {
         try {
             $lecturer = Lecturer::findOrFail($id);
-            
+
             return response()->json([
                 'status' => true,
                 'data' => $lecturer
