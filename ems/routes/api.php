@@ -26,3 +26,4 @@ Route::prefix('v1')->group(function () {
     Route::put('exam-duties/edit/{id}', [ExamDutyController::class, 'update']);
     Route::delete('exam-duties/{id}', [ExamDutyController::class, 'destroy']);
 });
+

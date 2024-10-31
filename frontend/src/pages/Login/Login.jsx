@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
-import { Container, Row, Col, Form, Button} from 'react-bootstrap';
+import { Container, Row, Col, Form } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../../components/main components/Footer';
 import NavBar1 from "../../components/main components/NavBar1";
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo.png";
 import './Login.css';
 
 function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errors, setErrors] = useState({});
-    const navigate = useNavigate(); // Hook to redirect
+    const navigate = useNavigate();
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    // Validation logic
     const validateForm = () => {
         let formErrors = {};
         let isValid = true;
@@ -54,8 +53,7 @@ function LoginPage() {
 
             if (String(result.status) === 'success') {
                 localStorage.setItem('user-info', JSON.stringify(result.user));
-
-                // Check usertype and navigate accordingly
+                // Redirect based on usertype
                 if (result.user.usertype === 'admin') {
                     navigate('/admin');
                 } else {
@@ -77,20 +75,24 @@ function LoginPage() {
         }
     };
 
+    const clearFields = () => {
+        setEmail('');
+        setPassword('');
+    };
+
     return (
         <div className="login-page">
-            <NavBar1 />
-            <Container className="mt-5 col-sm-8">
-                <div className="login-container">
+            <NavBar1/>
+            <Container className="mt-4 col-sm-6 px-1 ">
+                <div className="login-container pt-2 mx-lg-1 px-4">
                     <Row className="justify-content-center">
-                        <Col md={8} lg={8} className="login-box">
-                            <div className="login-header text-center mb-4">
-                                <img src={logo} alt="EMS Logo" className="ems-logo" />
+                        <Col md={10} lg={10} className="login-box pt-3">
+                            <div className="login-header text-center mb-3">
+                                <img src={logo} alt="EMS Logo" className="ems-logo"/>
                             </div>
-
                             <div className="text-center mb-4">
-                                <h4 className="login-title1">Welcome To</h4>
-                                <h2 className="login-title">Exam Duty Management System</h2>
+                                <p className="login-title1 mb-0">Welcome To</p>
+                                <p className="login-title mb-0">Exam Duty Management System</p>
                                 <p className="login-subtitle">Please log into your account.</p>
                             </div>
 
@@ -101,6 +103,7 @@ function LoginPage() {
                                         type="email"
                                         placeholder="Enter email"
                                         value={email}
+                                        className="custom-placeholder"
                                         onChange={(e) => setEmail(e.target.value)}
                                         isInvalid={!!errors.email || !!errors.credentials}
                                     />
@@ -115,6 +118,7 @@ function LoginPage() {
                                         type="password"
                                         placeholder="Enter password"
                                         value={password}
+                                        className="custom-placeholder"
                                         onChange={(e) => setPassword(e.target.value)}
                                         isInvalid={!!errors.password || !!errors.credentials}
                                     />
@@ -122,42 +126,38 @@ function LoginPage() {
                                         {errors.password || errors.credentials}
                                     </Form.Control.Feedback>
                                 </Form.Group>
+                                <div className="justify-content-end pt-3 ">
+                                    <button type="button" className="btn btn-primary btn-sm mb-3 w-100"
+                                            onClick={() => {
+                                                clearFields();
+                                                navigate('/');
+                                            }}>Clear
+                                    </button>
+                                    <button type="submit" className="btn btn-primary btn-sm mb-3 w-100">Log In
+                                    </button>
 
-                                <Row className="clear-section">
-                                    <Col md={7}>
-                                        <Form.Group controlId="formRememberMe">
-                                            <Form.Check type="checkbox" label="Remember me" />
-                                        </Form.Group>
-                                    </Col>
-
-                                    <Col md={5} className="text-right">
-                                        <a href="/" className="clear-link">Do you want to clear?</a>
-                                    </Col>
-                                </Row>
-                                <div className="d-grid gap-2">
-                                    <Button variant="primary" type="submit" className="login-btn w-100">
-                                        Log In
-                                    </Button>
                                 </div>
-                                <br />
+                                <div className="login-footer text-center">
+                                    <p className="mt-4 mb-0">
+                                        New member?{' '}
+                                        <a href="mailto:ems@sci.ruh.ac.lk"
+                                           title="Contact the Department of Computer Science">Contact DCS
+                                        </a>
+                                    </p>
+                                </div>
+
                             </Form>
-                            <div className="login-footer mt-3 text-center">
-                                <p className="mt-2">
-                                    New member?{' '}
-                                    <a href="/" className="register-link" >
-                                        Contact DCS
-                                    </a>
-                                </p>
-                            </div>
                         </Col>
                     </Row>
-                    <br /><br />
+
+                    <br/><br/>
                 </div>
             </Container>
-            <br /><br />
-            <Footer />
+            <br/><br/>
+            <Footer/>
         </div>
-    );
+    )
+        ;
 }
 
 export default LoginPage;

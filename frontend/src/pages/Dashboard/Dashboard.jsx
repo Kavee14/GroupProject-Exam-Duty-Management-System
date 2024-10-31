@@ -15,6 +15,8 @@ const Dashboard = () => {
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
   const activePage = "Dashboard";
+
+
     return (
         <Container fluid className="main-container">
             <Sidebar isOpen={isSidebarOpen} />
@@ -26,7 +28,7 @@ const Dashboard = () => {
                 <div className="dashboard-content">
                   <div className="main-sections">
                     <div className="left-section">
-                      <UpcomingDuties/>
+                        <UpcomingDuties />
                     </div>
                     <div className="right-section">
                       <Updates/>

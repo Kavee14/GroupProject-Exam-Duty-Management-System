@@ -15,6 +15,7 @@ class LecturerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'lecID' => 'required',
             'name' => 'required',
             'email' => 'required|email|unique:lecturers',
             'phone_number' => 'required',

@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->time('startTime');
             $table->time('endTime');
-            $table->string('examHall');
+            $table->string('venue')->nullable();
             $table->timestamps();
         });
     }

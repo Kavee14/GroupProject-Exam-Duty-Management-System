@@ -4,8 +4,8 @@ import UniLogo from '../../assets/UniLogo.png';
 
 const NavBar1 = () => {
     return (
-        <Navbar bg="light" expand="lg" className="shadow-sm pt-3">
-            <Container className="d-flex ">
+        <Navbar bg="light" expand="lg" className="shadow-sm pt-0">
+            <Container className="d-flex">
 
                 <Navbar.Brand href="/"  >
                     <img
@@ -23,9 +23,10 @@ const NavBar1 = () => {
 
                         <Nav className="align-items-center">
                             <Nav.Item>
-                                <span className="navbar-text me-4" style={{ color: '#00568D' }}>You are not logged in</span>
+                                <span className="navbar-text me-4" style={{ color: '#00568D', fontSize:'16px' }}>You are not logged in</span>
                             </Nav.Item>
-                            <button type="button" className="btn btn-primary btn-sm">Log In</button>
+                            <button type="submit" className="btn btn-primary btn-sm mb-3">Log In</button>
+
                         </Nav>
                     </Navbar.Collapse>
             </Container>

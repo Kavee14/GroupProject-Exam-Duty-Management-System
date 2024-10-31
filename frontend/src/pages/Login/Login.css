@@ -2,68 +2,104 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Target placeholder text for all input fields */
+.custom-placeholder::placeholder  {
+    color: rgba(28, 27, 27, 0.5); /* Adjust color and opacity as needed */
+    opacity: 0.5; /* Set opacity for placeholders */
+}
+
+
 .login-container {
     flex: auto;
-    border: 0px solid #ccc;
-    padding-top: 20px;
-    margin:50px 70px;
+    padding: 20px;
+    border: 0 solid #ccc;
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
-.login-box{
-    padding: 20px;
+.login-form {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 8px;
 }
 
-.ems-logo{
+
+.ems-logo {
     width: auto;
-    height: auto;
-    padding-right: 60px;
-}
-
-.login-title1{
-    font-size: 25px;
+    max-width: 120px;
+    justify-content: center;
 }
 
 .login-title {
     color: #00568D;
+    font-weight: 400;
     font-size: 30px;
-    font-weight: 600;
+}
 
+.login-title1 {
+    font-size: 25px;
 
 }
 
 .login-subtitle {
-    font-size: 16px;
+    font-size: 15px;
     color: #545454;
-    padding-bottom: 10px;
+    margin-top:5px;
+    margin-bottom: 20px;
 }
 
-.clear-section{
-    padding-top: 30px;
-    padding-bottom: 40px;
-}
+.btn{
+    padding: 5px 20px !important;
+    align-items: end !important;
 
-.checkbox{
-    padding-top: 25px;
-}
-
-.login-btn {
-    background-color: #00568D;
-}
-
-.login-footer{
-    padding-top: 30px;
 }
 
 .clear-link, .register-link {
-    color: #45A9EA;
+    color: #0c65e8 !important;
 }
 
-.register-link{
+.register-link {
+    color: #535354;
+}
+
+.register-link {
     font-weight: bold;
 }
 
 .clear-link:hover, .register-link:hover {
     text-decoration: underline;
 }
+
+
+/* Media queries for smaller screens */
+@media (max-width: 768px) {
+    .login-title {
+        font-size: 20px;
+    }
+
+    .login-subtitle {
+        font-size: 14px;
+    }
+
+    .ems-logo {
+        max-width: 90px;
+    }
+
+    .login-container {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .login-title {
+        font-size: 18px;
+    }
+
+    .login-subtitle {
+        font-size: 12px;
+    }
+    .login-container {
+        padding: 2rem;
+    }
+
+}
+
