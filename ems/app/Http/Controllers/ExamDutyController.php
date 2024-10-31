@@ -53,7 +53,7 @@ class ExamDutyController extends Controller
                 'date' => 'required|date',
                 'startTime' => 'required|date_format:H:i',
                 'endTime' => 'required|date_format:H:i|after:startTime',
-                'examHall' => 'required|string'
+                'venue' => 'required|string'
             ]);
 
             // Check if lecturer is already assigned at this time
@@ -99,7 +99,7 @@ class ExamDutyController extends Controller
                 'date' => 'sometimes|required|date',
                 'startTime' => 'sometimes|required|date_format:H:i',
                 'endTime' => 'sometimes|required|date_format:H:i|after:startTime',
-                'examHall' => 'sometimes|required|string'
+                'venue' => 'sometimes|required|string'
             ]);
 
             // Check for time conflicts if date or time is being updated

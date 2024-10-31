@@ -33,18 +33,14 @@ function AddLecturers() {
     // Submit form
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Lecturer data:', lecturer); // Check lecturer data before sending
+
         try {
-            // No need to include the full URL, just the endpoint
             const response = await api.post('/v1/lecturers/add', lecturer);
-            console.log('Lecturer added:', response.data);
             alert('Lecturer added successfully!');
         } catch (error) {
             if (error.response) {
-                console.error('Error response:', error.response.data);
                 alert(`Failed to add lecturer: ${error.response.data.message || 'Unknown error'}`);
             } else {
-                console.error('Error message:', error.message);
                 alert('Failed to add lecturer: ' + error.message);
             }
         }
