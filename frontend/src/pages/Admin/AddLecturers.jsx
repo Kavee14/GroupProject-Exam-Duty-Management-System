@@ -10,6 +10,7 @@ import logo from '../../assets/logo.png';
 function AddLecturers() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [lecturer, setLecturer] = useState({
+        lecID: '',
         name: '',
         email: '',
         phone_number: '',
@@ -46,7 +47,6 @@ function AddLecturers() {
         }
     };
 
-
     return (
         <Container fluid className="main-container">
             <Row>
@@ -63,6 +63,22 @@ function AddLecturers() {
                                 <h3 className="text-title pb-3 mt-3" style={{fontWeight: 'bold', textAlign:'center'}}>Lecturer Details</h3>
                                 <br/>
                                 <Form onSubmit={handleSubmit}>
+                                    <Form.Group as={Row} controlId="formLecID" className="mb-3">
+                                        <Form.Label column sm={3} className="label-container">
+                                            <div className="label-text">Lecturer ID</div>
+                                            <span className="colon">:</span>
+                                        </Form.Label>
+                                        <Col sm={9}>
+                                            <Form.Control
+                                                type="text"
+                                                name="lecID"
+                                                placeholder="Enter Lecturer ID"
+                                                value={lecturer.lecID}
+                                                onChange={handleInputChange}
+                                            />
+                                        </Col>
+                                    </Form.Group>
+
                                     <Form.Group as={Row} controlId="formName" className="mb-3">
                                         <Form.Label column sm={3} className="label-container">
                                             <div className="label-text">Name</div>

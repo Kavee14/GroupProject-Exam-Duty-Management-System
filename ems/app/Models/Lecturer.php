@@ -10,6 +10,7 @@ class Lecturer extends Model
     use HasFactory;
 
     protected $fillable = [
+        'lecID',
         'name',
         'email',
         'phone_number',
@@ -18,4 +19,8 @@ class Lecturer extends Model
         'department',
 
     ];
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::make($value);
+    }
 }
