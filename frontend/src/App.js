@@ -20,8 +20,8 @@ function App() {
       <Route path="/duties" element={<Protected Cmp={Duties} />} />
       <Route path="/report" element={<Protected Cmp={Reports} />} />
 
-      <Route path="/admin" element={<Protected Cmp={AdminDashboard} />} />
-      <Route path="/add" element={<Protected Cmp={AddLecturers} />} />
+      <Route path="/admin" element={<AdminDashboard/>} />
+      <Route path="/add" element={<AddLecturers />} />
       <Route path="/upload" element={<Protected Cmp={UploadPdfs} />} />
     </Routes>
     </Router>;

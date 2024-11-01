@@ -24,7 +24,6 @@
       <path value="$PROJECT_DIR$/ems/vendor/laravel/pail" />
       <path value="$PROJECT_DIR$/ems/vendor/laravel/pint" />
       <path value="$PROJECT_DIR$/ems/vendor/egulias/email-validator" />
-      <path value="$PROJECT_DIR$/ems/vendor/laravel/framework" />
       <path value="$PROJECT_DIR$/ems/vendor/laravel/serializable-closure" />
       <path value="$PROJECT_DIR$/ems/vendor/laravel/tinker" />
       <path value="$PROJECT_DIR$/ems/vendor/laravel/prompts" />
@@ -141,6 +140,7 @@
       <path value="$PROJECT_DIR$/ems/vendor/mobiledetect/mobiledetectlib" />
       <path value="$PROJECT_DIR$/ems/vendor/laravel/sanctum" />
       <path value="$PROJECT_DIR$/ems/vendor/livewire/livewire" />
+      <path value="$PROJECT_DIR$/ems/vendor/laravel/framework" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.2" />

@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+            $table->string('lec_id');
+            $table->string('usertype')->default('user');
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('usertype')->default('user');
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->foreign('lec_id')->references('lec_id')->on('lecturers')->onDelete('cascade');
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->string('profile_photo_path', 2048)->nullable();
@@ -43,10 +45,16 @@ return new class extends Migration
     /**
      * Reverse the migrations.
      */
+    /**
+     * Reverse the migrations.
+     */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
-        Schema::dropIfExists('sessions');
+        Schema::table('users', function (Blueprint $table) {
+            // Dropping columns and foreign key constraint
+            $table->dropForeign(['lec_id']);
+            $table->dropColumn(['lec_id', 'usertype', 'name', 'email', 'password']);
+        });
     }
 };
+

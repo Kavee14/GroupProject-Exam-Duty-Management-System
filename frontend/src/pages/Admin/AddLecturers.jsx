@@ -10,10 +10,10 @@ import logo from '../../assets/logo.png';
 function AddLecturers() {
     const [isSidebarOpen, setSidebarOpen] = useState(false);
     const [lecturer, setLecturer] = useState({
-        lecID: '',
+        lec_id: '',
         name: '',
         email: '',
-        phone_number: '',
+        phone: '',
         address: '',
         position: 'Professor',
         department: 'Computer Science',
@@ -71,9 +71,9 @@ function AddLecturers() {
                                         <Col sm={9}>
                                             <Form.Control
                                                 type="text"
-                                                name="lecID"
+                                                name="lec_id"
                                                 placeholder="Enter Lecturer ID"
-                                                value={lecturer.lecID}
+                                                value={lecturer.lec_id}
                                                 onChange={handleInputChange}
                                             />
                                         </Col>
@@ -87,7 +87,7 @@ function AddLecturers() {
                                         <Col sm={9}>
                                             <Form.Control
                                                 type="text"
-                                                name="name"
+                                                name="name" // Matches with the backend
                                                 placeholder="Enter Full Name"
                                                 value={lecturer.name}
                                                 onChange={handleInputChange}
@@ -119,9 +119,9 @@ function AddLecturers() {
                                         <Col sm={9}>
                                             <Form.Control
                                                 type="text"
-                                                name="phone_number"
+                                                name="phone"
                                                 placeholder="Enter Phone Number"
-                                                value={lecturer.phone_number}
+                                                value={lecturer.phone}
                                                 onChange={handleInputChange}
                                             />
                                         </Col>

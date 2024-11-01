@@ -10,10 +10,10 @@ class Lecturer extends Model
     use HasFactory;
 
     protected $fillable = [
-        'lecID',
+        'lec_id',
         'name',
         'email',
-        'phone_number',
+        'phone',
         'address',
         'position',
         'department',
