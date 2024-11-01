@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lecturers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->string('lec_id')->primary(); // Set lec_id as the primary key
+            $table->string('name'); // Lecturer's full name
             $table->string('email')->unique();
-            $table->string('phone_number');
+            $table->string('phone');
             $table->string('address');
             $table->string('position');
             $table->string('department');

@@ -18,6 +18,7 @@
       <excludeFolder url="file://$MODULE_DIR$/ems/vendor/livewire/livewire" />
       <excludeFolder url="file://$MODULE_DIR$/ems/vendor/mobiledetect/mobiledetectlib" />
       <excludeFolder url="file://$MODULE_DIR$/ems/vendor/pragmarx/google2fa" />
+      <excludeFolder url="file://$MODULE_DIR$/ems/vendor/laravel/framework" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
