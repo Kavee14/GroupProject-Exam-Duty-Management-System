@@ -37,7 +37,7 @@
 
 .active-pg {
     position: absolute;
-    top: 60px; /* Adjusted to leave space for the header */
+    top: 60px;
     left: 0;
     right: 0;
     text-align: left;
@@ -53,13 +53,14 @@
     line-height: 29px;
     text-align: left;
     margin: 0;
-    padding: 10px 0;
+    padding-top:20px;
     text-transform: uppercase; /* Always show the active page text in uppercase */
 }
 
 .shifted .header,
 .shifted .active-pg {
     margin-left: 250px;
+    padding-bottom: 10px;
     width: calc(100% - 250px);
 }
 

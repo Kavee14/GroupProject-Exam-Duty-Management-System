@@ -6,7 +6,7 @@ import Sidebar from "../../components/main components/Sidebar";
 import Header from '../../components/main components/Header';
 
 const Report = () => {
-    const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [isSidebarOpen, setSidebarOpen] = useState(true);
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
     const activePage = "Voucher & Report";

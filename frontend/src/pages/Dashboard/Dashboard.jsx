@@ -11,7 +11,7 @@ import './Dashboard.css';
 
 
 const Dashboard = () => {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
   const activePage = "Dashboard";
@@ -24,13 +24,13 @@ const Dashboard = () => {
             <div className={`main-content ${isSidebarOpen ? 'shifted' : ''}`}>
               <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} activePage={activePage}/>
 
-              <Container fluid className="content-container">
-                <div className="dashboard-content">
+              <Container fluid className="content-container py-5">
+                <div className="dashboard-content pt-1 px-2 ">
                   <div className="main-sections">
-                    <div className="left-section">
+                    <div className="left-section bg-white">
                         <UpcomingDuties />
                     </div>
-                    <div className="right-section">
+                    <div className="right-section px-3">
                       <Updates/>
                       <Calendar/>
                       <RequestButton/>

@@ -8,7 +8,7 @@ import pdf from '../../assets/pdf.png'
 import './DutiesPage.css';
 
 function DutiesPage() {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isSidebarOpen, setSidebarOpen] = useState(true);
   const requests = [
     { id: 1, name: 'W.A.B.C.D.Ranasinghe' },
     { id: 2, name: 'D.M.K.N.Dissanayake' },

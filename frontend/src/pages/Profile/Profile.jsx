@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaUserEdit } from "react-icons/fa";
-import {Container,Row} from "react-bootstrap";
+import {Container,Row,Col} from "react-bootstrap";
 import Sidebar from "../../components/main components/Sidebar";
 import Header from "../../components/main components/Header";
 import Footer from "../../components/main components/Footer";
@@ -35,9 +35,9 @@ function ProfileSection({ name, setName, email, setEmail, phone, setPhone, addre
     };
 
     return (
-        <section className="profile pt-5">
+        <section className="profile pt-5 ">
             <div className="profile-card">
-                <div className="profile-image-container">
+                <div className="profile-image-container ">
                     <img src={profileImage} alt="Profile" className="profile-pic" />
                         <label htmlFor="imageUpload" className="edit-icon"><FaUserEdit /></label>
                             <input
@@ -51,18 +51,21 @@ function ProfileSection({ name, setName, email, setEmail, phone, setPhone, addre
                             <p className="designation">{position}</p>
                          </div>
 
-                    <div className="details ps-5 pe-3">
+                    <div className="details px-5">
                         <div className="info-block">
-                            <p className="text-title" style={{fontWeight:"bold" , fontSize:"20px"}}>Personal Information</p>
-                            <div className="info-content px-3">
+                            <p className="text-title" style={{fontWeight:"400" , fontSize:"20px"}}>Personal Information</p>
+                            <div className="info-content px-3 ">
                                 {isEditingPersonalInfo ? (
                                     <>
-                                    <p><strong>Name:</strong>
-                                        <input
-                                                value={name}
-                                                onChange={(e) => setName(e.target.value)}
-                                            />
-                                    </p>
+                                        <Row className="mb-2">
+                                            <Col sm="3">Name:</Col>
+                                            <Col sm="9">
+                                                <input
+                                                    value={name}
+                                                    onChange={(e) => setName(e.target.value)}
+                                                />
+                                            </Col>
+                                        </Row>
 
                                         <p><strong>Email:</strong>
                                             <input
@@ -98,7 +101,7 @@ function ProfileSection({ name, setName, email, setEmail, phone, setPhone, addre
 
                     <div className="info-block">
                         <div className="info-content">
-                            <p className="text-title" style={{fontWeight: "bold", fontSize: "20px"}}>Academic Information</p>
+                            <p className="text-title" style={{fontWeight: "400", fontSize: "20px"}}>Academic Information</p>
                             <div className="info-content px-3">                            {isEditingAcademicInfo ? (
                                 <>
                                     <p><strong>Position:</strong>
@@ -140,19 +143,19 @@ function Profile() {
     const [phone, setPhone] = useState("0771345679");
     const [address, setAddress] = useState("Matara");
 
-    const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [isSidebarOpen, setSidebarOpen] = useState(true);
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
     const activePage = "My Profile";
 
     return (
-        <Container fluid className="main-container">
+        <Container fluid className="main-container ">
             <Sidebar isOpen={isSidebarOpen} />
             <Row>
                 <div className={`main-content ${isSidebarOpen ? 'shifted' : ''}`}>
                     <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} activePage={activePage}/>
 
-                    <Container fluid className="content-container">
+                    <Container fluid className="content-container pt-0 pb-5">
                         <ProfileSection
                             name={name}
                             setName={setName}
