@@ -20,25 +20,33 @@ class NotifyLecturer extends Command
 
     public function handle()
     {
-        $tomorrow = now()->addDay()->format('Y-m-d'); // Get the date for tomorrow
-        $duties = Duty::whereDate('duty_date', $tomorrow)->get(); // Fetch duties
+        $tomorrow = now()->addDay()->format('Y-m-d');
+        $duties = Duty::whereDate('duty_date', $tomorrow)->get();
         Log::info('Notify lecturer command executed at ' . now());
 
         if ($duties->isEmpty()) {
-            Log::info('No duties found for tomorrow.');
-            return $this->info('No duties to notify for tomorrow.');
+            Log::info('No duty found for tomorrow.');
+            return $this->info('No duty to notify for tomorrow.');
         }
 
         foreach ($duties as $duty) {
-            try {
-                // Send email notification
-                Mail::to($duty->lecturer_email)->send(new DutyReminder($duty));
-                Log::info('Email sent to ' . $duty->lecturer_email);
-            } catch (\Exception $e) {
-                Log::error('Failed to send email to ' . $duty->lecturer_email . ': ' . $e->getMessage());
+            // Access the lecturer's email through the relationship
+            $email = $duty->lecturer->email ?? null;
+            Log::info('Attempting to send email to: ' . $email);
+
+            if ($email) {
+                try {
+                    Mail::to($email)->send(new DutyReminder($duty));
+                    Log::info('Email sent to ' . $email);
+                } catch (\Exception $e) {
+                    Log::error('Failed to send email to ' . $email . ': ' . $e->getMessage());
+                }
+            } else {
+                Log::warning('No email address found for duty ID: ' . $duty->id);
             }
         }
 
         $this->info('Lecturers notified successfully.');
     }
+
 }

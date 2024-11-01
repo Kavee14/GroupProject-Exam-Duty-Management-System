@@ -27,10 +27,10 @@ class Kernel extends ConsoleKernel
                  ->everyFiveMinutes();*/
 
         $schedule->command('app:notify-lecturer')
-            ->dailyAt('18:26')
+            ->dailyAt('7.00')
             ->appendOutputTo(storage_path('logs/scheduler.log')); // Optional: log output for debugging
 
-        Log::info('Scheduled command registered to run at 16:00.');
+        Log::info('Scheduled command registered to run at 7.00');
 
 
     }
@@ -43,6 +43,11 @@ class Kernel extends ConsoleKernel
 
         require base_path('routes/console.php');
     }
+
+    protected $middleware = [
+        // Other global middleware
+        \App\Http\Middleware\CorsMiddleware::class,
+    ];
 
 
 }

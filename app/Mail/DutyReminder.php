@@ -15,17 +15,22 @@ class DutyReminder extends Mailable
     use Queueable, SerializesModels;
 
     protected $duty;
+    protected $lecturer;
 
     public function __construct(Duty $duty)
     {
-        $this->duty = $duty; // Store the duty information
+        $this->duty = $duty;
+        $this->lecturer = $duty->lecturer;
     }
 
     public function build()
     {
         return $this->subject('Reminder: Upcoming Duty Assigned')
-            ->view('emails.dutyReminder') // Use the correct view path
-            ->with(['duty' => $this->duty]); // Pass the duty to the view
+            ->view('emails.dutyReminder')
+            ->with([
+                'duty' => $this->duty,
+                'lecturer' => $this->lecturer,
+            ]);
     }
 
     public function envelope(): Envelope

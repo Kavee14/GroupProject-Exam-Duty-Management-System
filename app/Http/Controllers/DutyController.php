@@ -2,38 +2,56 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Duty;
 use Illuminate\Http\Request;
+use App\Models\Duty;
+use Carbon\Carbon;
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\View;
+//use Barryvdh\Snappy\Facades\SnappyPdf as Pdf;
+
 
 class DutyController extends Controller
 {
-    public function requestDutyChange($id)
+    public function getUpcomingDuties($lec_id)
     {
-        $duty = Duty::findOrFail($id);
-        $duty->is_requested = true;
-        $duty->save();
+        $today = Carbon::today();
 
-        return redirect()->route('duties.index')->with('status', 'Request for change submitted.');
+        $duties = Duty::where('lec_id', $lec_id)
+            ->where('duty_date', '>=', $today)
+            ->orderBy('duty_date')
+            ->orderBy('start_time')
+            ->take(2)
+            ->get(['duty_date', 'start_time', 'end_time', 'course_code', 'exam_hall']);
+
+        // Format the duty date and times
+        $formattedDuties = $duties->map(function ($duty) {
+            return [
+                'duty_date' => (new Carbon($duty->duty_date))->format('Y-m-d'), // Format duty_date to 'Y-m-d'
+                'time' => (new Carbon($duty->start_time))->format('H:i') . '-' . (new Carbon($duty->end_time))->format('H:i'), // Format the time to 24-hour format
+                'course_code' => $duty->course_code,
+                'exam_hall' => $duty->exam_hall,
+            ];
+        });
+
+        return response()->json($formattedDuties);
     }
 
-    public function showUpcomingDuties()
-    {
-        $nearestDuties = Duty::where('duty_date', '>=', now())
-            ->orderBy('duty_date', 'asc')
-            ->take(3)
-            ->get();
 
-        return view('dashboard', compact('nearestDuties'));
+
+    public function downloadLecturerDutySchedule($id)
+    {
+        // Fetch the duty schedule data for the specific lecturer
+        $duties = Duty::where('lec_id', $id)->get();
+
+        // Check if the view exists and load it
+        if (View::exists('duties.schedule')) {
+            $pdf = Pdf::loadView('duties.schedule', compact('duties'));
+            return $pdf->download('Lecturer_Duty_Schedule.pdf');
+        }
+
+        // Handle the error case (view not found)
+        return response()->json(['error' => 'View not found'], 404);
     }
 
-  /**  public function show($id)
-    {
-        // Fetch the duty by its ID, or fail if not found
-        $duty = Duty::findOrFail($id);
-
-        // Pass the duty to the view
-        return view('welcome', compact('duty'));
-    }**/
 
 }
-

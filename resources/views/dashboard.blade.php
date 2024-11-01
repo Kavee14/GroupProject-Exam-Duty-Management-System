@@ -27,8 +27,8 @@
             <div class="duty-card">
                 <h4>{{ $duty->duty_date->format('d M') }} - {{ $duty->duty_date->format('l') }}</h4>
                 <p>{{ $duty->start_time }} - {{ $duty->end_time }}</p>
-                <p>{{ $duty->location }}</p>
-                <p>{{ $duty->lecturer_name }}</p>
+                <p>{{ $duty->exam_hall }}</p>
+                <p>{{ $duty->course_code }}</p>
             </div>
         @endforeach
     </div>
