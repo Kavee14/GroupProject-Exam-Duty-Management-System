@@ -11,7 +11,7 @@ const Calendar = () => {
   };
 
   return (
-    <div className="calendar">
+    <div className="calendar p-4">
       <div className="calendar-widget">
         <CalendarComponent
           onChange={handleDateChange}

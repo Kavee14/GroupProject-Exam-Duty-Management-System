@@ -14,8 +14,9 @@ function Header({ toggleSidebar, isSidebarOpen, activePage }) {
     }
 
     return (
-        <div className={isSidebarOpen ? "shifted" : ""}>
-            <Navbar bg="white" className="header shadow-sm px-3" expand="lg">
+        <div className={isSidebarOpen ? "shifted" : ""} >
+            <div>
+            <Navbar bg="white" className="header shadow-sm px-3 " expand="lg">
                 <button className="custom-button"  onClick={toggleSidebar}>
                     ☰
                 </button>
@@ -36,6 +37,7 @@ function Header({ toggleSidebar, isSidebarOpen, activePage }) {
 
             <div className="active-pg">
                 <h5>{activePage}</h5>
+            </div>
             </div>
         </div>
     );
