@@ -8,7 +8,7 @@ import './AddLecturers.css';
 import logo from '../../assets/logo.png';
 
 function AddLecturers() {
-    const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [isSidebarOpen, setSidebarOpen] = useState(true);
     const [lecturer, setLecturer] = useState({
         lec_id: '',
         name: '',
@@ -49,12 +49,12 @@ function AddLecturers() {
 
     return (
         <Container fluid className="main-container">
+            <Sidebar isOpen={isSidebarOpen} />
             <Row>
-                <Sidebar isOpen={isSidebarOpen} />
                 <div className={`main-content ${isSidebarOpen ? 'shifted' : ''}`}>
                     <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} activePage={activePage} />
 
-                    <Container fluid className="content-container">
+                    <Container fluid className="content-container pt-5">
                         <Card className="lecturer-details mb-4 px-5">
                             <Card.Body>
                                 <div className="pl-3">

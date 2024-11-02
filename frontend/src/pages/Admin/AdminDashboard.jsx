@@ -7,7 +7,7 @@ import logo from '../../assets/logo.png';
 import './AdminDashboard.css';
 
 function AdminDashboard() {
-    const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [isSidebarOpen, setSidebarOpen] = useState(true);
     const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
     const activePage = "Admin Dashboard";
 
@@ -22,11 +22,11 @@ function AdminDashboard() {
     };
     return (
         <Container fluid className="main-container">
+            <Sidebar isOpen={isSidebarOpen} />
             <Row>
-                <Sidebar isOpen={isSidebarOpen} />
                 <div className={`main-content ${isSidebarOpen ? 'shifted' : ''}`}>
                     <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} activePage={activePage} />
-                    <Container fluid className="content-container">
+                    <Container fluid className="content-container pt-5">
                         <Card className="exam-duty-assign mb-4">
                             <Card.Body>
                                 <div className="pl-3">
