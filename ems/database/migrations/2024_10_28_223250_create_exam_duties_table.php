@@ -13,13 +13,21 @@ return new class extends Migration
     {
         Schema::create('exam_duties', function (Blueprint $table) {
             $table->id();
+<<<<<<< Updated upstream
             $table->foreignId('lecId')->constrained('lecturers');
+=======
+            $table->string('lecId');
+>>>>>>> Stashed changes
             $table->string('courseCode');
             $table->date('date');
             $table->time('startTime');
             $table->time('endTime');
             $table->string('venue')->nullable();
             $table->timestamps();
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         });
     }
 

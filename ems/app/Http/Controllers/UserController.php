@@ -25,6 +25,10 @@ class UserController extends Controller
             return response()->json([
                 'status' => 'success',
                 'user' => [
+<<<<<<< Updated upstream
+=======
+                    'id' => $user->id,
+>>>>>>> Stashed changes
                     'name' => $user->name,
                     'email' => $user->email,
                     'usertype' => $user->usertype,

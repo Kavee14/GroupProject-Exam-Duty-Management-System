@@ -1,0 +1,38 @@
+.content-container {
+    margin: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.report-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #343a40;
+}
+
+.duties-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.duties-table th,
+.duties-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #dee2e6;
+}
+
+.duties-table th {
+    background-color: #00568D;
+    color: white;
+}
+
+.duties-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.duties-table tr:hover {
+    background-color: #e9ecef;
+}

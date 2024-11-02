@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ExamDutyController;
 use App\Http\Controllers\LecturerController;
+<<<<<<< Updated upstream
+=======
+use App\Http\Controllers\ReportController;
+>>>>>>> Stashed changes
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
@@ -25,5 +29,11 @@ Route::prefix('v1')->group(function () {
     Route::post('exam-duties/add', [ExamDutyController::class, 'store']);
     Route::put('exam-duties/edit/{id}', [ExamDutyController::class, 'update']);
     Route::delete('exam-duties/{id}', [ExamDutyController::class, 'destroy']);
+<<<<<<< Updated upstream
+=======
+
+    //reports
+    Route::get('show/{reportType}/{userId}', [ReportController::class, 'show']);
+>>>>>>> Stashed changes
 });
 
