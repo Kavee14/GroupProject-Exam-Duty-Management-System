@@ -7,7 +7,7 @@ import Footer from '../../components/main components/Footer';
 import './UploadPdfs.css';
 
 function UploadPdfs() {
-    const [isSidebarOpen, setSidebarOpen] = useState(false);
+    const [isSidebarOpen, setSidebarOpen] = useState(true);
     const [selectedUser, setSelectedUser] = useState("");
     const [file, setFile] = useState(null);
     const [users, setUsers] = useState([]);
@@ -44,12 +44,12 @@ function UploadPdfs() {
 
     return (
         <Container fluid className="main-container">
+            <Sidebar isOpen={isSidebarOpen} />
             <Row>
-                <Sidebar isOpen={isSidebarOpen} />
                 <div className={`main-content ${isSidebarOpen ? 'shifted' : ''}`}>
                     <Header toggleSidebar={toggleSidebar} isSidebarOpen={isSidebarOpen} activePage={activePage} />
 
-                    <Container fluid className="d-flex justify-content-center align-items-center min-vh-100 bg-light mt-md-5">
+                    <Container fluid className="d-flex justify-content-center align-items-center min-vh-100 bg-light mt-md-4">
                         <Card style={{ width: '900px', height: 'auto', marginTop: '130px' ,marginBottom:'130px'}} className="shadow">
                             <Card.Body className="d-flex flex-column align-items-center">
                                 <img src={logo} alt="EMS Logo" className="mb-4" style={{ width: '130px' }} />
